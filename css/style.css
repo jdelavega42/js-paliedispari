@@ -1,0 +1,33 @@
+/* !RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: 3rem auto;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+p {
+    font-size: 100px;
+    font-weight: 800;
+  }
+  .dice::after {
+    content:'';
+    animation: rolling .5s linear infinite;
+  }
+  
+  @keyframes rolling {
+    0% {content:'\2681';}
+    20% {content:'\2680';}
+    40% {content:'\2685';}
+    60% {content:'\2683';}
+    80% {content:'\2682';}
+    100% {content:'\2684';}
+  }
+  .d-none {
+    display: none;
+  }

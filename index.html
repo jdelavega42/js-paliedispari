@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- custom style-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <input type="text" placeholder="Inserisci una parola" id="user-word">
+        <button id="word-btn">Invia</button>
+        <span id="result1"></span>
+    </div>
+
+    <div class="wrapper">
+        <div>Regole: 1- scegli un numero | 2- scegli pari o dispari | Vinci se la somma del tuo numero e quella del dado corrispondono al risultato che hai scelto!</div>
+        <hr>
+        <select name="" id="numbers">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <select name="" id="odd-even">
+            <option value="odd">Odd</option>
+            <option value="even">Even</option>
+        </select>
+        <button id="die-btn">Gioca!</button>
+        <button id="reset" class="d-none">Reset</button>
+        <p class="dice" id="bot-number"></p>
+        <span id="result2">hai vinto!</span>
+    </div>
+    
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
