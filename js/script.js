@@ -15,16 +15,26 @@ wordBtn.addEventListener("click", function(){
     sentence.innerHTML = `${result}`
 });
 
-function checkPalindrome(string) {
-    let length = string.length;
+/**
+ * Description
+ * @param {string} wordToCheck
+ * @returns {boolean}
+ */
+function checkPalindrome(wordToCheck) {
+    let length = wordToCheck.length;
     isPalindrome = true;
-    for (let i = 0; i < length / 2; i++) {
-        if (string[i] !== string[length - 1 - i]) {
+    let i = 0;
+    while (i < length / 2 && isPalindrome === true) {
+        if (wordToCheck[i] !== wordToCheck[length - 1 - i]) {
             isPalindrome = false;
         } 
+        i++
     }
     return isPalindrome;
 }    
+
+
+
 
 const submit = document.getElementById('die-btn');
 const reset = document.getElementById('reset');
@@ -37,15 +47,16 @@ submit.addEventListener('click', function(){
     const userBet = document.getElementById('odd-even');
     const userBetValue = userBet.value;
     const botDice = Math.floor(Math.random() * 6) +1;
-    const numberSum = sum(numberChoiceInt, botDice);
-    console.log(numberSum, userBetValue);
+    const evenOrOdd = oddOrEvenOfSum(numberChoiceInt, botDice);
+    let numberSum = numberChoiceInt + botDice;
+    console.log(evenOrOdd, userBetValue);
     
-    if (numberSum == userBetValue){
-        result = 'Complimenti, HAI VINTO!';
+    if (evenOrOdd == userBetValue){
+        result = `La somma di ${numberChoiceInt} e ${botDice} é  ${numberSum}, un numero ${evenOrOdd}. Complimenti, HAI VINTO!`;
     } else {
-        result = 'Ritenta, sarai più fortunato!!';
+        result = `La somma di ${numberChoiceInt} e ${botDice} é  ${numberSum}, hai scelto ${userBetValue} ma é un numero ${evenOrOdd}. Ritenta, sarai più fortunato!!`;
     }
-    betResult.innerHTML = `${result}`
+    betResult.innerHTML = `${result}`;
 
 
 
@@ -77,13 +88,13 @@ reset.addEventListener('click', function() {
     botNumber.innerHTML = '';
 })
 
-function sum(numberOne, numberTwo) {
+function oddOrEvenOfSum(numberOne, numberTwo) {
 let operation = numberOne + numberTwo;
 if (operation % 2 === 0){
     console.log('numero pari');
-    return "even";
+    return "pari";
 } else {
     console.log('numero dispari');
-    return "odd";
+    return "dispari";
 }
 }
